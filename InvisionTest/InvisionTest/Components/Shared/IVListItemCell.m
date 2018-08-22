@@ -22,8 +22,20 @@
 }
 
 -(void)setupCell{
+    WEAK_SELF
     _imageDisplay = [IVImageDisplay new];
+    
+    [_imageDisplay setDidTouchBlock:^(IVImageDisplay *imageDisplay) {
+        [wself didTapImageDisplay:imageDisplay];
+    }];
     [self addSubview:_imageDisplay];
+}
+
+-(void)didTapImageDisplay:(IVImageDisplay*)imageDisplay{
+    WEAK_SELF
+    
+    if(!self.didTouchBlock)return;
+    self.didTouchBlock(wself);
 }
 
 -(void)layoutSubviews{
@@ -47,6 +59,9 @@
         [self.imageDisplay displayImage:image];
     }];
     
+    
+    
 }
+
 
 @end

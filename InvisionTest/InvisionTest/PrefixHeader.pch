@@ -19,11 +19,12 @@
 // UTILS
 #import "IVUtils.h"
 
+// MODELS
+#import "IVModels.h"
+
 // SERVICES
 #import "IVServices.h"
 
-// MODELS
-#import "IVModels.h"
 
 #endif
 
