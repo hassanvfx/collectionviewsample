@@ -123,6 +123,9 @@
 #pragma mark responding
 
 -(void)didTapCell:(IVListItemCell*)cell{
+    CGRect rect=  [cell.superview convertRect:cell.frame toView:self.view];
+    [IVServices navigation].lastAnimationOriginRect =rect;
+   
     [[IVServices navigation]presentListItemPreview:cell.listItem];
 }
 

@@ -21,6 +21,7 @@
 		262D8ACC212DC4B800FCAEDC /* IVImageDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8ACB212DC4B800FCAEDC /* IVImageDisplay.m */; };
 		262D8ACF212DCBA200FCAEDC /* IVFullScreenDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8ACE212DCBA200FCAEDC /* IVFullScreenDisplay.m */; };
 		262D8AD2212DCCB700FCAEDC /* IVFullScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8AD1212DCCB700FCAEDC /* IVFullScreenController.m */; };
+		262D8AD5212DD4EB00FCAEDC /* IVTransitionScaleAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8AD4212DD4EB00FCAEDC /* IVTransitionScaleAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		262D8ACE212DCBA200FCAEDC /* IVFullScreenDisplay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVFullScreenDisplay.m; sourceTree = "<group>"; };
 		262D8AD0212DCCB700FCAEDC /* IVFullScreenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVFullScreenController.h; sourceTree = "<group>"; };
 		262D8AD1212DCCB700FCAEDC /* IVFullScreenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVFullScreenController.m; sourceTree = "<group>"; };
+		262D8AD3212DD4EB00FCAEDC /* IVTransitionScaleAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVTransitionScaleAnimator.h; sourceTree = "<group>"; };
+		262D8AD4212DD4EB00FCAEDC /* IVTransitionScaleAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVTransitionScaleAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 		262D8AA4212DB94200FCAEDC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				262D8AD6212DD4F100FCAEDC /* Transitions */,
 				262D8ABD212DBE4C00FCAEDC /* Shared */,
 				262D8AB6212DBD4300FCAEDC /* MainScreen */,
 				262D8AAD212DBAC200FCAEDC /* IVNavigationViewController.h */,
@@ -165,6 +169,15 @@
 				262D8AC4212DC2E300FCAEDC /* IVListItem.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		262D8AD6212DD4F100FCAEDC /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				262D8AD3212DD4EB00FCAEDC /* IVTransitionScaleAnimator.h */,
+				262D8AD4212DD4EB00FCAEDC /* IVTransitionScaleAnimator.m */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +261,7 @@
 				262D8AC0212DC18300FCAEDC /* IVSSeedData.m in Sources */,
 				262D8A90212DB89600FCAEDC /* AppDelegate.m in Sources */,
 				262D8AAC212DBAAC00FCAEDC /* IVRootViewController.m in Sources */,
+				262D8AD5212DD4EB00FCAEDC /* IVTransitionScaleAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

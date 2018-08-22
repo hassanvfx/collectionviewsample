@@ -9,6 +9,7 @@
 #import "IVRootViewController.h"
 #import "IVNavigationViewController.h"
 #import "IVFullScreenController.h"
+#import "IVTransitionScaleAnimator.h"
 
 @interface IVSNavigation()<UINavigationControllerDelegate>
 @property(strong)IVNavigationViewController *navigationController;
@@ -26,6 +27,8 @@
     self.navigationController.delegate=self;
     
     [self.navigationController setNavigationBarHidden:YES];
+    
+    self.interactionController = [UIPercentDrivenInteractiveTransition new];
     
     window.rootViewController = self.navigationController;
     [window makeKeyAndVisible];
@@ -45,5 +48,32 @@
 -(void)presentRootController{
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+#pragma makr - TRANSITIONS STUFF
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
+    
+    IVTransitionScaleAnimator *animator= [IVTransitionScaleAnimator new];
+    animator.originRect=self.lastAnimationOriginRect;
+    
+    if([fromVC isKindOfClass:IVFullScreenController.class]){
+        animator.reversed=YES;
+    }
+    return  animator;
+}
+
+
+
+
+
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+                         interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController{
+    
+      return nil;
+}
+
 
 @end

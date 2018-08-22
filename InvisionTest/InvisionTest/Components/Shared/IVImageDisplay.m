@@ -32,7 +32,10 @@
     self.imageView.frame=self.bounds;
 }
 -(void)displayImage:(UIImage*)image{
-    self.imageView.image=image;
+    ASYNC_MAIN(^{
+        self.imageView.image=image;
+    });
+    
 }
 #pragma mark -gesture
 

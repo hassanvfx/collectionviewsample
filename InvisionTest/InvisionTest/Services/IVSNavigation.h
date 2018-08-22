@@ -11,6 +11,9 @@
 
 @interface IVSNavigation : NSObject
 
+@property (strong, nonatomic) UIPercentDrivenInteractiveTransition* interactionController;
+@property(assign)CGRect lastAnimationOriginRect;
+
 -(void)setupWithWindow:(UIWindow*)window;
 
 -(void)presentListItemPreview:(IVListItem*)listItem;
