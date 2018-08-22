@@ -34,8 +34,11 @@
     self.imageView.frame=self.bounds;
 }
 -(void)displayImage:(UIImage*)image{
+    WEAK_SELF
+    [self layoutSubviews];
+    
     ASYNC_MAIN(^{
-        self.imageView.image=image;
+        wself.imageView.image=image;
     });
     
 }
