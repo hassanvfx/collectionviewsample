@@ -62,6 +62,7 @@
     if([fromVC isKindOfClass:IVFullScreenController.class]){
         animator.reversed=YES;
     }
+    
     return  animator;
 }
 

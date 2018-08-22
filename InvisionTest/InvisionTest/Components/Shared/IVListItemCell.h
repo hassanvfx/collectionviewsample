@@ -11,7 +11,6 @@
 @class  IVListItemCell;
 BLOCK_TYPEDEF(IVListItemCellTouchBlock, void, (IVListItemCell *view))
 
-
 static NSString * const kIVIVListItemCellIdentifier = @"kIVIVListItemCellIdentifier";
 
 @interface IVListItemCell : UICollectionViewCell

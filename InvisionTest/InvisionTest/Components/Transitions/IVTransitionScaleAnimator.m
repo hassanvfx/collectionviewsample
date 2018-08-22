@@ -12,7 +12,7 @@
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.25;
+    return 1.0;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -22,20 +22,29 @@
     UIViewController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController* fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     [[transitionContext containerView] addSubview:toViewController.view];
+   
     //TODO: PASS THE ORIGIN RECT FROM THE CELL instead
     
-    CGAffineTransform origin =CGAffineTransformMakeScale(0.1, 0.1);
+//    CGAffineTransform origin =CGAffineTransformMakeScale(0.1, 0.1);
+    
+    NSAssert(!CGRectIsEmpty(self.originRect), @"origin rect must be set");
+    
+    CGAffineTransform scaleTransform = [self transformFromRect:toViewController.view.frame toRect:self.originRect];
     
     if(self.reversed){
         
+        //SCALE OUT
+        
+
         [[transitionContext containerView] sendSubviewToBack:toViewController.view];
         
         fromViewController.view.alpha = 1;
         fromViewController.view.transform = CGAffineTransformIdentity;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+            
             fromViewController.view.alpha = 0;
-            fromViewController.view.transform = origin;
+            fromViewController.view.transform = scaleTransform;
             
         } completion:^(BOOL finished) {
             //        fromViewController.view.transform = CGAffineTransformIdentity;
@@ -45,10 +54,13 @@
         
     } else{
         
+        /// SCALE IN
+        
         toViewController.view.alpha = 0;
-        toViewController.view.transform = origin;
+        toViewController.view.transform = scaleTransform;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+            
             toViewController.view.alpha = 1;
             toViewController.view.transform = CGAffineTransformIdentity;
             
@@ -61,5 +73,14 @@
     
     
 }
+
+- (CGAffineTransform) transformFromRect:(CGRect)sourceRect toRect:(CGRect)finalRect {
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform, -(CGRectGetMidX(sourceRect)-CGRectGetMidX(finalRect)), -(CGRectGetMidY(sourceRect)-CGRectGetMidY(finalRect)));
+    transform = CGAffineTransformScale(transform, finalRect.size.width/sourceRect.size.width, finalRect.size.height/sourceRect.size.height);
+    
+    return transform;
+}
+
 
 @end

@@ -15,6 +15,8 @@
         if(!_imageView){
             _imageView=[UIImageView new];
             _imageView.contentMode=UIViewContentModeScaleAspectFit;
+            _imageView.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            
             [self addSubview:_imageView];
             
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];

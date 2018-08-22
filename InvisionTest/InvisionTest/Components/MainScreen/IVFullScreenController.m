@@ -17,14 +17,20 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+//    self.view.clipsToBounds=YES;
     [self setupSubviews];
 }
 
 
 -(void)setupSubviews{
     
+    
     _imageDisplay = [IVImageDisplay new];
+    _imageDisplay.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     _imageDisplay.frame=self.view.bounds;
+    
     [self.view addSubview:_imageDisplay];
     
     _imageDisplay.backgroundColor=[UIColor redColor];
