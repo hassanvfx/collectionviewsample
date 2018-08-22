@@ -12,5 +12,6 @@
 @implementation IVServices
 
 SINGLETON_FOR_CLASS(navigation,IVSNavigation)
+SINGLETON_FOR_CLASS(seed,IVSSeedData)
 
 @end

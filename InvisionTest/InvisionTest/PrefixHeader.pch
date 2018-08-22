@@ -16,8 +16,14 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#import "IVServices.h"
+// UTILS
 #import "IVUtils.h"
+
+// SERVICES
+#import "IVServices.h"
+
+// MODELS
+#import "IVModels.h"
 
 #endif
 

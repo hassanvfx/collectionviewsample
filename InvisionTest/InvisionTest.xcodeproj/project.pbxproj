@@ -15,7 +15,10 @@
 		262D8AAC212DBAAC00FCAEDC /* IVRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8AAB212DBAAC00FCAEDC /* IVRootViewController.m */; };
 		262D8AAF212DBAC200FCAEDC /* IVNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8AAE212DBAC200FCAEDC /* IVNavigationViewController.m */; };
 		262D8AB5212DBC2900FCAEDC /* IVServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8AB4212DBC2900FCAEDC /* IVServices.m */; };
-		262D8ABC212DBE4800FCAEDC /* IVImagePreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8ABB212DBE4800FCAEDC /* IVImagePreviewCell.m */; };
+		262D8ABC212DBE4800FCAEDC /* IVListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8ABB212DBE4800FCAEDC /* IVListItemCell.m */; };
+		262D8AC0212DC18300FCAEDC /* IVSSeedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8ABF212DC18300FCAEDC /* IVSSeedData.m */; };
+		262D8AC5212DC2E300FCAEDC /* IVListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8AC4212DC2E300FCAEDC /* IVListItem.m */; };
+		262D8ACC212DC4B800FCAEDC /* IVImageDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D8ACB212DC4B800FCAEDC /* IVImageDisplay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +39,15 @@
 		262D8AB2212DBBD400FCAEDC /* IVUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVUtils.h; sourceTree = "<group>"; };
 		262D8AB3212DBC2900FCAEDC /* IVServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVServices.h; sourceTree = "<group>"; };
 		262D8AB4212DBC2900FCAEDC /* IVServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVServices.m; sourceTree = "<group>"; };
-		262D8ABA212DBE4800FCAEDC /* IVImagePreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVImagePreviewCell.h; sourceTree = "<group>"; };
-		262D8ABB212DBE4800FCAEDC /* IVImagePreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVImagePreviewCell.m; sourceTree = "<group>"; };
+		262D8ABA212DBE4800FCAEDC /* IVListItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVListItemCell.h; sourceTree = "<group>"; };
+		262D8ABB212DBE4800FCAEDC /* IVListItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVListItemCell.m; sourceTree = "<group>"; };
+		262D8ABE212DC18300FCAEDC /* IVSSeedData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVSSeedData.h; sourceTree = "<group>"; };
+		262D8ABF212DC18300FCAEDC /* IVSSeedData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVSSeedData.m; sourceTree = "<group>"; };
+		262D8AC3212DC2E300FCAEDC /* IVListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVListItem.h; sourceTree = "<group>"; };
+		262D8AC4212DC2E300FCAEDC /* IVListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVListItem.m; sourceTree = "<group>"; };
+		262D8AC9212DC33B00FCAEDC /* IVModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVModels.h; sourceTree = "<group>"; };
+		262D8ACA212DC4B800FCAEDC /* IVImageDisplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVImageDisplay.h; sourceTree = "<group>"; };
+		262D8ACB212DC4B800FCAEDC /* IVImageDisplay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IVImageDisplay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +80,7 @@
 		262D8A8D212DB89500FCAEDC /* InvisionTest */ = {
 			isa = PBXGroup;
 			children = (
+				262D8AC2212DC2C500FCAEDC /* Models */,
 				262D8AB1212DBBC600FCAEDC /* Utils */,
 				262D8AA5212DB95500FCAEDC /* Services */,
 				262D8AA4212DB94200FCAEDC /* Components */,
@@ -102,6 +113,8 @@
 				262D8AB4212DBC2900FCAEDC /* IVServices.m */,
 				262D8AA6212DB97E00FCAEDC /* IVSNavigation.h */,
 				262D8AA7212DB97E00FCAEDC /* IVSNavigation.m */,
+				262D8ABE212DC18300FCAEDC /* IVSSeedData.h */,
+				262D8ABF212DC18300FCAEDC /* IVSSeedData.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -126,10 +139,22 @@
 		262D8ABD212DBE4C00FCAEDC /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				262D8ABA212DBE4800FCAEDC /* IVImagePreviewCell.h */,
-				262D8ABB212DBE4800FCAEDC /* IVImagePreviewCell.m */,
+				262D8ABA212DBE4800FCAEDC /* IVListItemCell.h */,
+				262D8ABB212DBE4800FCAEDC /* IVListItemCell.m */,
+				262D8ACA212DC4B800FCAEDC /* IVImageDisplay.h */,
+				262D8ACB212DC4B800FCAEDC /* IVImageDisplay.m */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		262D8AC2212DC2C500FCAEDC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				262D8AC9212DC33B00FCAEDC /* IVModels.h */,
+				262D8AC3212DC2E300FCAEDC /* IVListItem.h */,
+				262D8AC4212DC2E300FCAEDC /* IVListItem.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,11 +226,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				262D8ABC212DBE4800FCAEDC /* IVImagePreviewCell.m in Sources */,
+				262D8ABC212DBE4800FCAEDC /* IVListItemCell.m in Sources */,
+				262D8AC5212DC2E300FCAEDC /* IVListItem.m in Sources */,
 				262D8AA8212DB97E00FCAEDC /* IVSNavigation.m in Sources */,
 				262D8AAF212DBAC200FCAEDC /* IVNavigationViewController.m in Sources */,
 				262D8AB5212DBC2900FCAEDC /* IVServices.m in Sources */,
+				262D8ACC212DC4B800FCAEDC /* IVImageDisplay.m in Sources */,
 				262D8A9E212DB89700FCAEDC /* main.m in Sources */,
+				262D8AC0212DC18300FCAEDC /* IVSSeedData.m in Sources */,
 				262D8A90212DB89600FCAEDC /* AppDelegate.m in Sources */,
 				262D8AAC212DBAAC00FCAEDC /* IVRootViewController.m in Sources */,
 			);

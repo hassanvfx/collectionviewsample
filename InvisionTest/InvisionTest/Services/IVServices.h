@@ -7,9 +7,9 @@
 //
 
 #import "IVSNavigation.h"
-
+#import "IVSSeedData.h"
 @interface IVServices : NSObject
 
 +(IVSNavigation*)navigation;
-
++(IVSSeedData*)seed;
 @end

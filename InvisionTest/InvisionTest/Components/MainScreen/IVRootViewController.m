@@ -7,7 +7,7 @@
 //
 
 #import "IVRootViewController.h"
-#import "IVImagePreviewCell.h"
+#import "IVListItemCell.h"
 
 @interface IVRootViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property(strong)UICollectionView *collectionView;
@@ -38,9 +38,9 @@
     [_collectionView setBackgroundColor:[UIColor clearColor]];
     _collectionView.alwaysBounceVertical = YES;
    
-    [_collectionView registerClass:[IVImagePreviewCell class] forCellWithReuseIdentifier:kIVImagePreviewCellIdentifier];
+    [_collectionView registerClass:[IVListItemCell class] forCellWithReuseIdentifier:kIVIVListItemCellIdentifier];
     
-    _collectionView.backgroundColor=[UIColor blueColor];
+//    _collectionView.backgroundColor=[UIColor blueColor];
     
     [self.view addSubview:_collectionView];
 }
@@ -54,16 +54,24 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return 10;
+    return [self listItems].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-  
-    IVImagePreviewCell *cell= (IVImagePreviewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kIVImagePreviewCellIdentifier forIndexPath:indexPath];
+    
+    
+    IVListItemCell *cell= (IVListItemCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kIVIVListItemCellIdentifier forIndexPath:indexPath];
 
+    IVListItem *item =[self listItemForIndex:indexPath.row];
+    if(item){
+        [cell updateWithListItem:item];
+    }
+    
     return cell;
 }
+
+
 
 #pragma  mark LAyout delegate
 
@@ -83,6 +91,27 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
+}
+
+
+#pragma mark -
+#pragma mark Data Fetching Adaptor
+
+//Note: This is temporary
+// we can replace this later by data coming from an API
+// or other resource
+
+- (NSArray*) listItems{
+    return  [[IVServices seed]listIitems];
+}
+
+-(IVListItem*) listItemForIndex:(NSInteger)index{
+    if(index >= [self listItems].count){
+        NSAssert(NO, @"Susbcript out of range!");
+        return nil;
+    }
+    
+    return [[self listItems]objectAtIndex:index];
 }
 
 @end
