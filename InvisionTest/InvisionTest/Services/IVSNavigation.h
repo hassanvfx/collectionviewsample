@@ -18,5 +18,8 @@
 
 -(void)presentListItemPreview:(IVListItem*)listItem;
 -(void)presentRootController;
+-(void)presentRootControllerWithInteractivity;
 
+-(void)updateInteractiveTransition:(float)percent;
+-(void)finishTransition:(BOOL)completed;
 @end
