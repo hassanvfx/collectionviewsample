@@ -35,11 +35,11 @@
 }
 -(void)displayImage:(UIImage*)image{
     WEAK_SELF
-    [self layoutSubviews];
-    
-    ASYNC_MAIN(^{
+
+//    ASYNC_MAIN(^{
+        [wself layoutSubviews];
         wself.imageView.image=image;
-    });
+//    });
     
 }
 #pragma mark -gesture

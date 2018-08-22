@@ -108,13 +108,14 @@
 
 -(void)setupWithListItem:(IVListItem*)listItem{
     
+    WEAK_SELF
     NSAssert(listItem, @"listitem must be provided");
     
     self.listItem = listItem;
     [self.listItem loadImageWithCompletionBlock:^(UIImage *image) {
         
         NSAssert(image, @"an image is expected to exist!");
-        [self.imageDisplay displayImage:image];
+        [wself.imageDisplay displayImage:image];
     }];
     
 }

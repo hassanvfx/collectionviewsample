@@ -24,10 +24,10 @@
     //we may want to load an image from a server url
     // for now we load from resources
     UIImage *image = [UIImage imageNamed:self.imageName];
-    
-    ASYNC_MAIN(^{
+    NSAssert(image, @"image is expected here");
+//    ASYNC_MAIN(^{
         completion(image);
-    });
+//    });
 }
 
 @end
