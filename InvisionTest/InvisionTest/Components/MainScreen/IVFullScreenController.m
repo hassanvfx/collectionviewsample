@@ -18,14 +18,26 @@
 
 @implementation IVFullScreenController
 
--(void)viewDidLoad{
-    [super viewDidLoad];
-    
-    //    self.view.backgroundColor=[UIColor whiteColor];
-    //    self.view.clipsToBounds=YES;
-  
-}
 
+#pragma mark - helpers
+
+-(void)setupWithListItem:(IVListItem*)listItem{
+    
+    WEAK_SELF
+    NSAssert(listItem, @"listitem must be provided");
+    
+    [self setupSubviews];
+    [self setupGestures];
+    
+    self.listItem = listItem;
+    [self.listItem loadImageWithCompletionBlock:^(UIImage *image) {
+        
+        NSAssert(YES, @"an image is expected to exist!");
+        [wself.imageDisplay displayImage:image];
+
+    }];
+    
+}
 
 -(void)setupSubviews{
     
@@ -97,28 +109,6 @@
     percent=1.0-scale;
     NSLog(@"scale %f",percent);
     [[IVServices navigation]updateInteractiveTransition:percent];
-}
-
-#pragma mark - helpers
-
--(void)setupWithListItem:(IVListItem*)listItem{
-    
-    WEAK_SELF
-    NSAssert(listItem, @"listitem must be provided");
-    
-    [self setupSubviews];
-    [self setupGestures];
-    
-    self.listItem = listItem;
-    [self.listItem loadImageWithCompletionBlock:^(UIImage *image) {
-        
-        NSAssert(YES, @"an image is expected to exist!");
-        
-        [wself.imageDisplay displayImage:image];
-        
-        
-    }];
-    
 }
 
 @end
