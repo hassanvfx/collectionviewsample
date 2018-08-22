@@ -21,24 +21,19 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-//    self.view.backgroundColor=[UIColor whiteColor];
+    //    self.view.backgroundColor=[UIColor whiteColor];
     //    self.view.clipsToBounds=YES;
-    [self setupSubviews];
-    [self setupGestures];
+  
 }
 
 
 -(void)setupSubviews{
     
-    
     _imageDisplay = [IVImageDisplay new];
-    _imageDisplay.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    _imageDisplay.frame=self.view.bounds;
+    [_imageDisplay setupWithFrame:self.view.bounds];
     
     [self.view addSubview:_imageDisplay];
     
-//    _imageDisplay.backgroundColor=[UIColor redColor];
     
     [_imageDisplay setDidTouchBlock:^(IVImageDisplay *view) {
         [[IVServices navigation]presentRootController];
@@ -86,7 +81,7 @@
 }
 
 -(void)startTranstion{
-   
+    
     [[IVServices navigation]presentRootControllerWithInteractivity];
 }
 
@@ -95,7 +90,7 @@
 }
 
 -(void)applyScale:(float)scale{
-   
+    
     self.currentScale=scale;
     
     float percent=MIN(MAX(scale,0.0),1.0);
@@ -111,11 +106,17 @@
     WEAK_SELF
     NSAssert(listItem, @"listitem must be provided");
     
+    [self setupSubviews];
+    [self setupGestures];
+    
     self.listItem = listItem;
     [self.listItem loadImageWithCompletionBlock:^(UIImage *image) {
         
-        NSAssert(image, @"an image is expected to exist!");
+        NSAssert(YES, @"an image is expected to exist!");
+        
         [wself.imageDisplay displayImage:image];
+        
+        
     }];
     
 }

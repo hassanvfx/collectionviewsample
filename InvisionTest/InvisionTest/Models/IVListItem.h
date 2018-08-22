@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-BLOCK_TYPEDEF(IVListItemImageBlock, void, (UIImage *view))
+BLOCK_TYPEDEF(IVListItemImageBlock, void, (UIImage *image))
 
 @interface IVListItem : NSObject
 

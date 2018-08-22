@@ -24,6 +24,7 @@
 -(void)setupCell{
     WEAK_SELF
     _imageDisplay = [IVImageDisplay new];
+    [_imageDisplay setupWithFrame:self.bounds];
     
     [_imageDisplay setDidTouchBlock:^(IVImageDisplay *imageDisplay) {
         [wself didTapImageDisplay:imageDisplay];
@@ -56,7 +57,6 @@
     
     [self.listItem loadImageWithCompletionBlock:^(UIImage *image) {
         
-        NSAssert(image, @"an image is expected to exist!");
         [wself.imageDisplay displayImage:image];
     }];
     

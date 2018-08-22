@@ -15,6 +15,8 @@ BLOCK_TYPEDEF(IVImageDisplayTouchBlock, void, (IVImageDisplay *view))
 
 @property(strong,nonatomic)UIImageView *imageView;
 @property(copy)IVImageDisplayTouchBlock didTouchBlock;
+
+-(void)setupWithFrame:(CGRect)frame;
 -(void)setDidTouchBlock:(IVImageDisplayTouchBlock)didTouchBlock; // for autocompletion
 -(void)displayImage:(UIImage*)image;
 

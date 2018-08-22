@@ -25,9 +25,9 @@
     // for now we load from resources
     UIImage *image = [UIImage imageNamed:self.imageName];
     NSAssert(image, @"image is expected here");
-//    ASYNC_MAIN(^{
-        completion(image);
-//    });
+    //    ASYNC_MAIN(^{
+    completion(image);
+    //    });
 }
 
 @end

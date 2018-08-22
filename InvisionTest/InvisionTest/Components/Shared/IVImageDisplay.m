@@ -10,36 +10,34 @@
 
 @implementation IVImageDisplay
 
--(UIImageView*)imageView{
-    @synchronized(self){
-        if(!_imageView){
-            _imageView=[UIImageView new];
-            _imageView.contentMode=UIViewContentModeScaleAspectFit;
-            _imageView.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            
-            [self addSubview:_imageView];
-            
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
-            [tap addTarget:self action:@selector(didTap:)];
-            
-            [self addGestureRecognizer:tap];
-        }
-        return  _imageView;
-    }
-}
 
+-(void)setupWithFrame:(CGRect)frame{
+    self.frame=frame;
+    
+    _imageView=[UIImageView new];
+    _imageView.frame=self.bounds;
+    _imageView.contentMode=UIViewContentModeScaleAspectFit;
+    
+    
+    [self addSubview:_imageView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+    [tap addTarget:self action:@selector(didTap:)];
+    
+    [self addGestureRecognizer:tap];
+    
+}
 
 #pragma mark -
--(void)layoutSubviews{
-    self.imageView.frame=self.bounds;
-}
--(void)displayImage:(UIImage*)image{
-    WEAK_SELF
 
-//    ASYNC_MAIN(^{
-        [wself layoutSubviews];
+-(void)displayImage:(UIImage*)image{
+    
+    WEAK_SELF
+    ASYNC_MAIN( ^{
+        wself.imageView.frame=wself.bounds;
         wself.imageView.image=image;
-//    });
+        [wself.imageView setNeedsDisplay];
+    });
     
 }
 #pragma mark -gesture
