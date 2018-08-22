@@ -16,15 +16,33 @@
             _imageView=[UIImageView new];
             _imageView.contentMode=UIViewContentModeScaleAspectFit;
             [self addSubview:_imageView];
+            
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+            [tap addTarget:self action:@selector(didTap:)];
+            
+            [self addGestureRecognizer:tap];
         }
         return  _imageView;
     }
 }
 
+
+#pragma mark -
 -(void)layoutSubviews{
     self.imageView.frame=self.bounds;
 }
 -(void)displayImage:(UIImage*)image{
     self.imageView.image=image;
 }
+#pragma mark -gesture
+
+-(void)didTap:(UIGestureRecognizer*)gesture{
+    
+    WEAK_SELF
+    if(!self.didTouchBlock)return;
+    
+    self.didTouchBlock(wself);
+}
+
+
 @end

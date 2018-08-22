@@ -60,9 +60,14 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
+    WEAK_SELF
     
     IVListItemCell *cell= (IVListItemCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kIVIVListItemCellIdentifier forIndexPath:indexPath];
 
+    [cell setDidTouchBlock:^(IVListItemCell *cell) {
+        [wself didTapCell:cell];
+    }];
+    
     IVListItem *item =[self listItemForIndex:indexPath.row];
     if(item){
         [cell updateWithListItem:item];
@@ -112,6 +117,13 @@
     }
     
     return [[self listItems]objectAtIndex:index];
+}
+
+#pragma mark -
+#pragma mark responding
+
+-(void)didTapCell:(IVListItemCell*)cell{
+    [[IVServices navigation]presentListItemPreview:cell.listItem];
 }
 
 @end

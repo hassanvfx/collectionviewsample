@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class IVImageDisplay;
+BLOCK_TYPEDEF(IVImageDisplayTouchBlock, void, (IVImageDisplay *view))
+
 @interface IVImageDisplay : UIView
 
 @property(strong,nonatomic)UIImageView *imageView;
+@property(copy)IVImageDisplayTouchBlock didTouchBlock;
+-(void)setDidTouchBlock:(IVImageDisplayTouchBlock)didTouchBlock; // for autocompletion
 -(void)displayImage:(UIImage*)image;
+
 @end

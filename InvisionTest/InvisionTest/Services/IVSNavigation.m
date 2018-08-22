@@ -8,6 +8,7 @@
 
 #import "IVRootViewController.h"
 #import "IVNavigationViewController.h"
+#import "IVFullScreenController.h"
 
 @interface IVSNavigation()<UINavigationControllerDelegate>
 @property(strong)IVNavigationViewController *navigationController;
@@ -28,6 +29,21 @@
     
     window.rootViewController = self.navigationController;
     [window makeKeyAndVisible];
+}
+
+
+-(void)presentListItemPreview:(IVListItem*)listItem{
+    
+    NSAssert(listItem, @"listitem must be provided!");
+    IVFullScreenController *controller = [IVFullScreenController new];
+    [controller setupWithListItem:listItem];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    
+}
+
+-(void)presentRootController{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

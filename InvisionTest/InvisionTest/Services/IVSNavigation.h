@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface IVSNavigation : NSObject
 
-
-
 -(void)setupWithWindow:(UIWindow*)window;
+
+-(void)presentListItemPreview:(IVListItem*)listItem;
+-(void)presentRootController;
 
 @end
