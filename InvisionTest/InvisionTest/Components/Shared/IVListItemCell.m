@@ -47,11 +47,11 @@
   
     self.listItem=listItem;
     
-    if([self.listItem.index integerValue]%2==0){
-        self.imageDisplay.backgroundColor=[UIColor redColor];
-    }else{
-        self.imageDisplay.backgroundColor=[UIColor blueColor];
-    }
+//    if([self.listItem.index integerValue]%2==0){
+//        self.imageDisplay.backgroundColor=[UIColor redColor];
+//    }else{
+//        self.imageDisplay.backgroundColor=[UIColor blueColor];
+//    }
     
     [self.listItem loadImageWithCompletionBlock:^(UIImage *image) {
         

@@ -22,7 +22,7 @@
     
     IVRootViewController *mainNav=[IVRootViewController new];
     
-    mainNav.view.backgroundColor=[UIColor redColor];
+//    mainNav.view.backgroundColor=[UIColor redColor];
   
     self.navigationController = [[IVNavigationViewController alloc] initWithRootViewController:mainNav];
     self.navigationController.delegate=self;

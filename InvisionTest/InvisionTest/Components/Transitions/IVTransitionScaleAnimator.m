@@ -39,11 +39,14 @@
         [[transitionContext containerView] sendSubviewToBack:toViewController.view];
         
         fromViewController.view.alpha = 1;
+        fromViewController.view.backgroundColor=[UIColor whiteColor];
         fromViewController.view.transform = CGAffineTransformIdentity;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             
             fromViewController.view.alpha = 0;
+            
+            fromViewController.view.backgroundColor=[UIColor clearColor];
             fromViewController.view.transform = scaleTransform;
             
         } completion:^(BOOL finished) {
@@ -57,11 +60,13 @@
         /// SCALE IN
         
         toViewController.view.alpha = 0;
+        toViewController.view.backgroundColor=[UIColor clearColor];
         toViewController.view.transform = scaleTransform;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             
             toViewController.view.alpha = 1;
+            toViewController.view.backgroundColor=[UIColor whiteColor];
             toViewController.view.transform = CGAffineTransformIdentity;
             
         } completion:^(BOOL finished) {

@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+     self.view.backgroundColor=[UIColor whiteColor];
+    
     [self setupCollectionView];
     // Do any additional setup after loading the view.
 }

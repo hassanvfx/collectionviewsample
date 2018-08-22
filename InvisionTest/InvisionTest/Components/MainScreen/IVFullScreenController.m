@@ -21,6 +21,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
+//    self.view.backgroundColor=[UIColor whiteColor];
     //    self.view.clipsToBounds=YES;
     [self setupSubviews];
     [self setupGestures];
@@ -37,7 +38,7 @@
     
     [self.view addSubview:_imageDisplay];
     
-    _imageDisplay.backgroundColor=[UIColor redColor];
+//    _imageDisplay.backgroundColor=[UIColor redColor];
     
     [_imageDisplay setDidTouchBlock:^(IVImageDisplay *view) {
         [[IVServices navigation]presentRootController];
