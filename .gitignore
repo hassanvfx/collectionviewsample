@@ -1,0 +1,15 @@
+.DS_Store
+xcuserdata/
+*.xccheckout
+Carthage/
+WildWorld.xcodeproj/*.xcworkspace
+WildWorld.xcodeproj/xcuserdata/
+Pods/
+Podfile.lock
+
+secrets/
+themes/
+*.psd
+*.ai
+build/
+
