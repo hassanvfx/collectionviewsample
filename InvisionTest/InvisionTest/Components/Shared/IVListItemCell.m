@@ -45,6 +45,7 @@
 
 -(void)updateWithListItem:(IVListItem*)listItem{
   
+    WEAK_SELF
     self.listItem=listItem;
     
 //    if([self.listItem.index integerValue]%2==0){
@@ -56,7 +57,7 @@
     [self.listItem loadImageWithCompletionBlock:^(UIImage *image) {
         
         NSAssert(image, @"an image is expected to exist!");
-        [self.imageDisplay displayImage:image];
+        [wself.imageDisplay displayImage:image];
     }];
     
     
