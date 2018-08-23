@@ -17,10 +17,16 @@ struct ListItem{
     func loadImage(completion:@escaping (UIImage?)->Void){
         
         if let name=name {
-            let image=UIImage(named:name)
-            DispatchQueue.main.async {
-                completion(image)
+            if let image=UIImage(named:name){
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }else{
+                assert(false,"Image is expected")
             }
+           
+            
+            
         }
         
     }

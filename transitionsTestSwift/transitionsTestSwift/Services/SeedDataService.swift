@@ -8,8 +8,8 @@
 
 import Foundation
 
-private let LIST_ITEM_RANGE = 1...5
-
+private let LIST_ITEM_RANGE = 1...20
+private let LIST_ITEM_MAX_INDEX = 5
 class SeedDataService{
     
     public var listItems: [ListItem] {
@@ -17,7 +17,8 @@ class SeedDataService{
         var result = [ListItem]()
         
         for i in LIST_ITEM_RANGE {
-            let name = "image\(i)"
+            let index = (i%LIST_ITEM_MAX_INDEX)+1
+            let name = "image\(index)"
             result.append(listItemFrom(name))
         }
         
