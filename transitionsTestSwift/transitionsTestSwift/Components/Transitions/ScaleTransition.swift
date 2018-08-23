@@ -35,12 +35,12 @@ class ScaleTransition: NSObject,UIViewControllerAnimatedTransitioning{
             //SCALE OUT
             transitionContext.containerView.sendSubview(toBack: toController.view)
        
-            fromController.view.alpha = 1
+         
             fromController.view.transform = .identity
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
                 
-                fromController.view.alpha = 1
+               
                 fromController.view.transform = scaleTransform
             
             }, completion: { finished in
@@ -50,13 +50,12 @@ class ScaleTransition: NSObject,UIViewControllerAnimatedTransitioning{
         }else{
             //SCALE IN
             
-            toController.view.alpha = 1
+            
             toController.view.transform = scaleTransform
             
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
                 
-                toController.view.alpha = 1
                 toController.view.transform = .identity
                 
             }, completion: { finished in

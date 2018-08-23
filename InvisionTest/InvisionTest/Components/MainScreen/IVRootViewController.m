@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor=[UIColor whiteColor];
     
     [self setupCollectionView];
     // Do any additional setup after loading the view.
@@ -85,8 +85,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
    
-    NSInteger size=self.collectionView.bounds.size.width/2;
-    return CGSizeMake(size,size);
+    return CGSizeMake(self.collectionView.bounds.size.width/2,
+                      self.collectionView.bounds.size.height/2);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {

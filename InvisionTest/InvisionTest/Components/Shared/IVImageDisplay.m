@@ -18,6 +18,7 @@
     _imageView.frame=self.bounds;
     _imageView.contentMode=UIViewContentModeScaleAspectFit;
     
+    self.backgroundColor=[UIColor whiteColor];
     
     [self addSubview:_imageView];
     
