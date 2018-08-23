@@ -32,7 +32,9 @@ class NavigationService: NSObject{
     func presentPreviewForListItem(item:ListItem){
         let previewController = ImagePreviewController()
         previewController.setupWithListItem(item)
-        self.navigationController?.pushViewController(previewController, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(previewController, animated: true)
+        }
     }
     
     func popToRootController(interactive:Bool){
