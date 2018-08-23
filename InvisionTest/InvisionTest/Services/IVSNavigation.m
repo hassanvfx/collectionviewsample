@@ -39,11 +39,14 @@
 
 -(void)presentListItemPreview:(IVListItem*)listItem{
     
+    WEAK_SELF
     NSAssert(listItem, @"listitem must be provided!");
     IVFullScreenController *controller = [IVFullScreenController new];
     [controller setupWithListItem:listItem];
-    
-    [self.navigationController pushViewController:controller animated:YES];
+    ASYNC_MAIN(^{
+        [wself.navigationController pushViewController:controller animated:YES];
+        
+    });
     
    
 }
